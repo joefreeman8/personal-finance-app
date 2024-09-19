@@ -1,0 +1,4 @@
+/* this makes the green color stored in my config */
+.active-icon {
+  filter: brightness(0) saturate(100%) invert(41%) sepia(13%) saturate(2271%) hue-rotate(134deg) brightness(95%) contrast(85%);
+}
