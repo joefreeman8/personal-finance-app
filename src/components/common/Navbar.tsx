@@ -19,6 +19,7 @@ export default function Navbar() {
       flex flex-col 
       text-preset-3
       xl:flex-row xl:justify-start xl:px-400 xl:py-200 xl:mb-50
+      md:pt-100
       ${isActivePath(path)
         ? 'bg-beige100 text-grey900 xl:rounded-r-lg xl:border-l-4 xl:border-green xl:w-[276px]'
         : 'text-grey300 hover:text-grey100'
@@ -57,7 +58,7 @@ export default function Navbar() {
           alt="Overview"
           className={getIconClasses('/overview')}
         />
-        <span className="hidden xl:inline">Overview</span>
+        <span className="hidden lg:inline">Overview</span>
       </Link>
 
       {/* Transactions */}
@@ -67,7 +68,7 @@ export default function Navbar() {
           alt="Transactions"
           className={getIconClasses('/transactions')}
         />
-        <span className="hidden xl:inline">Transactions</span>
+        <span className="hidden lg:inline">Transactions</span>
       </Link>
 
       {/* Budgets */}
@@ -77,7 +78,7 @@ export default function Navbar() {
           alt="Budgets"
           className={getIconClasses('/budgets')}
         />
-        <span className="hidden xl:inline">Budgets</span>
+        <span className="hidden lg:inline">Budgets</span>
       </Link>
 
       {/* Pots */}
@@ -87,7 +88,7 @@ export default function Navbar() {
           alt="Pots"
           className={getIconClasses('/pots')}
         />
-        <span className="hidden xl:inline">Pots</span>
+        <span className="hidden lg:inline">Pots</span>
       </Link>
 
       {/* Recurring Bills */}
@@ -97,7 +98,7 @@ export default function Navbar() {
           alt="Recurring Bills"
           className={getIconClasses('/recurring-bills')}
         />
-        <span className="hidden xl:inline">Recurring Bills</span>
+        <span className="hidden lg:inline">Recurring Bills</span>
       </Link>
 
     </nav>
