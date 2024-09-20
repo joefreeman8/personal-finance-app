@@ -9,14 +9,14 @@ import Pots from "./components/Pots";
 function App() {
   return (
     <Router>
-      <div className="xl:flex">
+      <div className="xl:flex bg-grey100">
         <Navbar />
         {/* Main content */}
         <div
           className="
-            flex-1 p-4 
-            mb-16 xl:ml-60 xl:mb-0 
-            bg-gray-50 min-h-screen"
+            xl:w-[calc(100vw-300px)]
+            xl:ml-[300px]
+            bg-grey100 min-h-screen"
         >
           <Routes>
             <Route path="/overview" element={<Overview />} />

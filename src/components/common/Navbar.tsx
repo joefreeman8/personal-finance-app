@@ -13,24 +13,28 @@ export default function Navbar() {
 
   const isActivePath = (path: string): boolean => location.pathname === path
 
+  // Applies different classes to Links (if selected)
   function getLinkClasses(path: string): string {
     return `
-      flex flex-col xl:flex-row p-2 xl:justify-start text-preset-3
-      ${isActivePath(path) ?
-        'bg-beige100 rounded-r-lg text-grey900 border-l-4 border-green' :
-        'text-grey300 hover:text-grey100'
+      flex flex-col 
+      text-preset-3
+      xl:flex-row xl:justify-start xl:px-400 xl:py-200 xl:mb-50
+      ${isActivePath(path)
+        ? 'bg-beige100 text-grey900 xl:rounded-r-lg xl:border-l-4 xl:border-green xl:w-[276px]'
+        : 'text-grey300 hover:text-grey100'
       }
     `
   }
 
+  // Applies change to icon colour
   function getIconClasses(path: string): string {
     if (location.pathname === path) {
       return `
-      w-6 h-6 xl:mr-4
+      xl:mr-200
       active-icon  //* active-icon is custom css written in Navbar.css
       `
     } else {
-      return 'w-6 h-6 xl:mr-4'
+      return 'xl:mr-200'
     }
   }
 
@@ -38,9 +42,13 @@ export default function Navbar() {
     <nav className="
       bg-grey900
       fixed bottom-0 w-full flex justify-around pt-4 pr-4 border-t
-      xl:fixed xl:top-0 xl:left-0 xl:w-60 xl:h-full xl:flex-col xl:justify-start xl:border-t-0 xl:border-r xl:rounded-tr-2xl
+      xl:w-[300px] xl:h-screen xl:flex-col xl:justify-start xl:border-t-0 xl:border-r xl:rounded-tr-2xl
     ">
-      <img src={NavLogo} alt="finance" className="w-[121px] h-[21px] m-10" />
+      <figure className="
+        xl:px-400 xl:py-500 xl:mb-100
+      ">
+        <img src={NavLogo} alt="finance" className="hidden xl:block" />
+      </figure>
 
       {/* Overview */}
       <Link to="/overview" className={getLinkClasses('/overview')}>
