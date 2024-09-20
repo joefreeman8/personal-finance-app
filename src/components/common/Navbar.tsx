@@ -16,13 +16,13 @@ export default function Navbar() {
   // Applies different classes to Links (if selected)
   function getLinkClasses(path: string): string {
     return `
-      flex flex-col 
-      lg:text-preset-5-bold lg:items-center lg:justify-end lg:pb-150 lg:pt:100 lg:w-[104px] lg:h-[66px] 
+      flex flex-col items-center justify-center w-[69px] h-[44px]
+      lg:text-preset-5-bold lg:justify-end lg:pb-150 lg:pt:100 lg:w-[104px] lg:h-[66px] 
       xl:text-preset-3 xl:flex-row xl:justify-start xl:px-400 xl:py-200 xl:mb-50 xl:w-[276px] xl:h-[56px]
       ${isActivePath(path)
         ? `
         bg-beige100 text-grey900 border-green
-        lg:rounded-tl-lg lg:rounded-tr-lg lg:border-b-4 
+        rounded-tl-lg rounded-tr-lg border-b-4 
         xl:rounded-tl-[0px] xl:border-b-0 xl:rounded-r-lg xl:border-l-4 xl:w-[276px]
         `
         : 'text-grey300 hover:text-grey100'
@@ -45,8 +45,8 @@ export default function Navbar() {
   return (
     <nav className="
       bg-grey900
-      fixed bottom-0 w-full flex pt-4 pr-4 border-t
-      lg:px-500 lg:justify-between 
+      fixed bottom-0 w-full flex justify-center pt-100 px-200 h-[52px]
+      lg:px-500 lg:justify-between lg:h-[74px]
       xl:px-0 xl:w-[300px] xl:h-screen xl:flex-col xl:justify-start xl:border-t-0 xl:border-r xl:rounded-tr-2xl
     ">
 
