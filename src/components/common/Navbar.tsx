@@ -17,13 +17,13 @@ export default function Navbar() {
   function getLinkClasses(path: string): string {
     return `
       flex flex-col items-center justify-center w-[69px] h-[44px]
-      lg:text-preset-5-bold lg:justify-end lg:pb-150 lg:pt:100 lg:w-[104px] lg:h-[66px] 
+      md:text-preset-5-bold md:justify-end md:pb-150 md:pt:100 md:w-[104px] md:h-[66px] 
       xl:text-preset-3 xl:flex-row xl:justify-start xl:px-400 xl:py-200 xl:mb-50 xl:w-[276px] xl:h-[56px]
       ${isActivePath(path)
         ? `
         bg-beige100 text-grey900 border-green
-        rounded-tl-lg rounded-tr-lg border-b-4 
-        xl:rounded-tl-[0px] xl:border-b-0 xl:rounded-r-lg xl:border-l-4 xl:w-[276px]
+        rounded-tl-md rounded-tr-md border-b-4 
+        xl:rounded-tl-[0px] xl:border-b-0 xl:rounded-r-md xl:border-l-4 xl:w-[276px]
         `
         : 'text-grey300 hover:text-grey100'
       }
@@ -46,7 +46,7 @@ export default function Navbar() {
     <nav className="
       bg-grey900
       fixed bottom-0 w-full flex justify-center pt-100 px-200 h-[52px]
-      lg:px-500 lg:justify-between lg:h-[74px]
+      md:px-500 md:justify-between md:h-[74px]
       xl:px-0 xl:w-[300px] xl:h-screen xl:flex-col xl:justify-start xl:border-t-0 xl:border-r xl:rounded-tr-2xl
     ">
 
@@ -62,7 +62,7 @@ export default function Navbar() {
           alt="Overview"
           className={getIconClasses('/overview')}
         />
-        <span className="hidden lg:inline lg:mt-50">Overview</span>
+        <span className="hidden md:inline md:mt-50">Overview</span>
       </Link>
 
       {/* Transactions */}
@@ -72,7 +72,7 @@ export default function Navbar() {
           alt="Transactions"
           className={getIconClasses('/transactions')}
         />
-        <span className="hidden lg:inline lg:mt-50">Transactions</span>
+        <span className="hidden md:inline md:mt-50">Transactions</span>
       </Link>
 
       {/* Budgets */}
@@ -82,7 +82,7 @@ export default function Navbar() {
           alt="Budgets"
           className={getIconClasses('/budgets')}
         />
-        <span className="hidden lg:inline lg:mt-50">Budgets</span>
+        <span className="hidden md:inline md:mt-50">Budgets</span>
       </Link>
 
       {/* Pots */}
@@ -92,7 +92,7 @@ export default function Navbar() {
           alt="Pots"
           className={getIconClasses('/pots')}
         />
-        <span className="hidden lg:inline lg:mt-50">Pots</span>
+        <span className="hidden md:inline md:mt-50">Pots</span>
       </Link>
 
       {/* Recurring Bills */}
@@ -102,7 +102,7 @@ export default function Navbar() {
           alt="Recurring Bills"
           className={getIconClasses('/recurring-bills')}
         />
-        <span className="hidden lg:inline lg:mt-50">Recurring Bills</span>
+        <span className="hidden md:inline md:mt-50">Recurring Bills</span>
       </Link>
 
     </nav>
