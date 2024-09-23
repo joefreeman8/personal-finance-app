@@ -16,7 +16,7 @@ export default {
         green: '#277c78',
         yellow: '#f2cdac',
         cyan: '#82c9d7',
-        navy: '#6262070',
+        navy: '#626070',
         red: '#c94736',
         purple: '#826cb0',
         purpleOther: '#af81ba',

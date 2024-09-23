@@ -1,13 +1,19 @@
 import { balance } from '../data.json'
+import { useNavigate } from 'react-router-dom'
 
 import rightArrow from '../assets/images/icon-caret-right.svg'
 import potIcon from '../assets/images/icon-pot.svg'
 
 export default function Overview() {
 
+  const navigate = useNavigate()
   const currentBalance = balance.current.toFixed(2)
   const totalIncome = balance.income.toFixed(2)
   const totalExpenses = balance.expenses.toFixed(2)
+
+  function navigateToPots() {
+    navigate('/pots')
+  }
 
   return (
     <section className="py-300 px-200 md:py-400 md:px-500">
@@ -44,7 +50,7 @@ export default function Overview() {
             <div className='flex xl:justify-between xl:mb-250'>
               <h2 className='text-preset-2 text-grey900'>Pots</h2>
               <button className='flex items-center text-grey500 text-preset-4'>
-                <p className='mr-4'>See Details</p>
+                <p onClick={navigateToPots} className='mr-4'>See Details</p>
                 <img src={rightArrow} alt='icon-pointing-right' />
               </button>
             </div>
@@ -57,13 +63,38 @@ export default function Overview() {
                 </div>
               </div>
               <div className='ml-250 grid grid-cols-2 gap-200'>
-                <div>
-                  <div className='xl:w-1 xl:bg-green rounded'></div>
-                  <p>Saving</p>
+                <div className='xl:w-[130px] flex items-center'>
+                  <div className='xl:w-1 xl:bg-green rounded'>
+                    <div className='xl:ml-200'>
+                      <p className='xl:text-preset-5 text-grey500 xl:mb-50 xl:w-[100px]'>Savings</p>
+                      <p className='xl:text-preset-4-bold text-grey900'>$159</p>
+                    </div>
+                  </div>
                 </div>
-                <div>Gift</div>
-                <div>Concert Ticket</div>
-                <div>New Laptop</div>
+                <div className='xl:w-[130px] flex items-center'>
+                  <div className='xl:w-1 xl:bg-cyan rounded'>
+                    <div className='xl:ml-200'>
+                      <p className='xl:text-preset-5 text-grey500 xl:mb-50 xl:w-[100px]'>Gift</p>
+                      <p className='xl:text-preset-4-bold text-grey900'>$40</p>
+                    </div>
+                  </div>
+                </div>
+                <div className='xl:w-[130px] flex items-center'>
+                  <div className='xl:w-1 xl:bg-navy rounded'>
+                    <div className='xl:ml-200'>
+                      <p className='xl:text-preset-5 text-grey500 xl:mb-50 xl:w-[100px]'>Concert Ticket</p>
+                      <p className='xl:text-preset-4-bold text-grey900'>$110</p>
+                    </div>
+                  </div>
+                </div>
+                <div className='xl:w-[130px] flex items-center'>
+                  <div className='xl:w-1 xl:bg-yellow rounded'>
+                    <div className='xl:ml-200'>
+                      <p className='xl:text-preset-5 text-grey500 xl:mb-50 xl:w-[100px]'>New Laptop</p>
+                      <p className='xl:text-preset-4-bold text-grey900'>$10</p>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
