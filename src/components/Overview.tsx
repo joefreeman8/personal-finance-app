@@ -1,4 +1,8 @@
 import { balance } from '../data.json'
+
+import rightArrow from '../assets/images/icon-caret-right.svg'
+import potIcon from '../assets/images/icon-pot.svg'
+
 export default function Overview() {
 
   const currentBalance = balance.current.toFixed(2)
@@ -33,6 +37,48 @@ export default function Overview() {
           <p className="text-preset-1 text-grey900 mt-150">${totalExpenses}</p>
         </div>
       </div>
-    </section>
+
+      <div className='flex flex-row'>
+        <div className='flex flex-col xl:w-3/5  xl:mr-400'>
+          <div className='xl:p-400 border-2 border-purple bg-white'>
+            <div className='flex xl:justify-between xl:mb-250'>
+              <h2 className='text-preset-2 text-grey900'>Pots</h2>
+              <button className='flex items-center text-grey500 text-preset-4'>
+                <p className='mr-4'>See Details</p>
+                <img src={rightArrow} alt='icon-pointing-right' />
+              </button>
+            </div>
+            <div className='flex'>
+              <div className='flex flex-row bg-beige100 xl:w-[247px] xl:p-200 rounded-xl'>
+                <img src={potIcon} alt='pot icon' />
+                <div className='flex flex-col xl:ml-200'>
+                  <p className='text-grey500 text-preset-4 xl:mb-[11px]'>Total Saved</p>
+                  <p className='text-grey900 text-preset-1'>$850</p>
+                </div>
+              </div>
+              <div className='ml-250 grid grid-cols-2 gap-200'>
+                <div>
+                  <div className='xl:w-1 xl:bg-green rounded'></div>
+                  <p>Saving</p>
+                </div>
+                <div>Gift</div>
+                <div>Concert Ticket</div>
+                <div>New Laptop</div>
+              </div>
+            </div>
+          </div>
+
+          <div className='border-2 border-pink '>Transactions</div>
+        </div>
+        <div className='flex flex-col xl:w-2/5 border border-red'>
+          <div>
+            <h2>Budgets</h2>
+          </div>
+          <div>
+            <h2>Recurring Bills</h2>
+          </div>
+        </div>
+      </div>
+    </section >
   )
 }
