@@ -45,8 +45,8 @@ export default function Overview() {
       </div>
 
       <div className='flex flex-row'>
-        <div className='flex flex-col xl:w-3/5  xl:mr-400'>
-          <div className='xl:p-400 border-2 border-purple bg-white'>
+        <div className='flex flex-col xl:w-7/12 xl:mr-400'>
+          <div className='xl:p-400 xl:rounded-xl bg-white'>
             <div className='flex xl:justify-between xl:mb-250'>
               <h2 className='text-preset-2 text-grey900'>Pots</h2>
               <button className='flex items-center text-grey500 text-preset-4'>
@@ -55,7 +55,7 @@ export default function Overview() {
               </button>
             </div>
             <div className='flex'>
-              <div className='flex flex-row bg-beige100 xl:w-[247px] xl:p-200 rounded-xl'>
+              <div className='flex flex-row bg-beige100 xl:w-2/5 xl:p-200 rounded-xl'>
                 <img src={potIcon} alt='pot icon' />
                 <div className='flex flex-col xl:ml-200'>
                   <p className='text-grey500 text-preset-4 xl:mb-[11px]'>Total Saved</p>
