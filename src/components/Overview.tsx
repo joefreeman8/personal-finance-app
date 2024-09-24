@@ -20,7 +20,7 @@ export default function Overview() {
       <h1 className="text-preset-1 mb-400 xl:mb-0 xl:my-100">
         Overview
       </h1>
-      <div className="flex flex-col md:flex-row md:my-400 md:justify-between">
+      <div className="flex flex-col md:flex-row my-400 md:justify-between">
         <div className="
           bg-grey900 text-white rounded-md p-250 mb-150
           md:mb-0 md:p-300 md:mr-300 md:w-1/3
@@ -44,33 +44,35 @@ export default function Overview() {
         </div>
       </div>
 
-      <div className='flex flex-row'>
+      <div className='flex flex-col xl:flex-row'>
         <div className='flex flex-col xl:w-7/12 xl:mr-400'>
-          <div className='xl:p-400 xl:rounded-xl bg-white'>
-            <div className='flex xl:justify-between xl:mb-250'>
+          <div className='p-300 md:p-400 rounded-xl bg-white'>
+            <div className='flex justify-between mb-250'>
               <h2 className='text-preset-2 text-grey900'>Pots</h2>
               <button className='flex items-center text-grey500 text-preset-4'>
-                <p onClick={navigateToPots} className='mr-4'>See Details</p>
+                <p onClick={navigateToPots} className='mr-150'>See Details</p>
                 <img src={rightArrow} alt='icon-pointing-right' />
               </button>
             </div>
-            <div className='flex'>
-              <div className='flex flex-row bg-beige100 xl:w-2/5 xl:p-200 rounded-xl'>
-                <img src={potIcon} alt='pot icon' />
-                <div className='flex flex-col xl:ml-200'>
-                  <p className='text-grey500 text-preset-4 xl:mb-[11px]'>Total Saved</p>
+            <div className='flex flex-col md:flex-row'>
+              <div className='flex flex-row mb-250 bg-beige100 p-200 rounded-xl md:w-2/5 md:mb-0'>
+                <figure className='flex items-center'>
+                  <img src={potIcon} alt='pot icon' className='h-[40px]' />
+                </figure>
+                <div className='flex flex-col ml-200'>
+                  <p className='text-grey500 text-preset-4 mb-[11px]'>Total Saved</p>
                   <p className='text-grey900 text-preset-1'>$850</p>
                 </div>
               </div>
-              <div className='ml-250 grid grid-cols-2 gap-200'>
+              <div className='md:ml-250 grid grid-cols-2 gap-200'>
                 {pots && (
                   pots.map((pot, index) => (
                     index < 4 && (
-                      <div key={index} className='xl:w-[130px] flex items-center'>
-                        <div className='xl:w-1 rounded' style={{ backgroundColor: pot.theme }}>
-                          <div className='xl:ml-200'>
-                            <p className='xl:text-preset-5 text-grey500 xl:mb-50 xl:w-[100px]'>{pot.name}</p>
-                            <p className='xl:text-preset-4-bold text-grey900'>${pot.total}</p>
+                      <div key={index} className='w-[130px] flex items-center'>
+                        <div className='w-1 rounded' style={{ backgroundColor: pot.theme }}>
+                          <div className='ml-200'>
+                            <p className='text-preset-5 text-grey500 mb-50 w-[100px]'>{pot.name}</p>
+                            <p className='text-preset-4-bold text-grey900'>${pot.total}</p>
                           </div>
                         </div>
                       </div>
