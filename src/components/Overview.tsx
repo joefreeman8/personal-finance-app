@@ -1,4 +1,4 @@
-import { balance } from '../data.json'
+import { balance, pots } from '../data.json'
 import { useNavigate } from 'react-router-dom'
 
 import rightArrow from '../assets/images/icon-caret-right.svg'
@@ -63,38 +63,20 @@ export default function Overview() {
                 </div>
               </div>
               <div className='ml-250 grid grid-cols-2 gap-200'>
-                <div className='xl:w-[130px] flex items-center'>
-                  <div className='xl:w-1 xl:bg-green rounded'>
-                    <div className='xl:ml-200'>
-                      <p className='xl:text-preset-5 text-grey500 xl:mb-50 xl:w-[100px]'>Savings</p>
-                      <p className='xl:text-preset-4-bold text-grey900'>$159</p>
-                    </div>
-                  </div>
-                </div>
-                <div className='xl:w-[130px] flex items-center'>
-                  <div className='xl:w-1 xl:bg-cyan rounded'>
-                    <div className='xl:ml-200'>
-                      <p className='xl:text-preset-5 text-grey500 xl:mb-50 xl:w-[100px]'>Gift</p>
-                      <p className='xl:text-preset-4-bold text-grey900'>$40</p>
-                    </div>
-                  </div>
-                </div>
-                <div className='xl:w-[130px] flex items-center'>
-                  <div className='xl:w-1 xl:bg-navy rounded'>
-                    <div className='xl:ml-200'>
-                      <p className='xl:text-preset-5 text-grey500 xl:mb-50 xl:w-[100px]'>Concert Ticket</p>
-                      <p className='xl:text-preset-4-bold text-grey900'>$110</p>
-                    </div>
-                  </div>
-                </div>
-                <div className='xl:w-[130px] flex items-center'>
-                  <div className='xl:w-1 xl:bg-yellow rounded'>
-                    <div className='xl:ml-200'>
-                      <p className='xl:text-preset-5 text-grey500 xl:mb-50 xl:w-[100px]'>New Laptop</p>
-                      <p className='xl:text-preset-4-bold text-grey900'>$10</p>
-                    </div>
-                  </div>
-                </div>
+                {pots && (
+                  pots.map((pot, index) => (
+                    index < 4 && (
+                      <div key={index} className='xl:w-[130px] flex items-center'>
+                        <div className='xl:w-1 rounded' style={{ backgroundColor: pot.theme }}>
+                          <div className='xl:ml-200'>
+                            <p className='xl:text-preset-5 text-grey500 xl:mb-50 xl:w-[100px]'>{pot.name}</p>
+                            <p className='xl:text-preset-4-bold text-grey900'>${pot.total}</p>
+                          </div>
+                        </div>
+                      </div>
+                    )
+                  ))
+                )}
               </div>
             </div>
           </div>
