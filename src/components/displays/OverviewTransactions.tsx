@@ -1,4 +1,4 @@
-import rightArrow from '../../assets/images/icon-caret-right.svg'
+import rightArrow from '/assets/images/icon-caret-right.svg'
 
 interface Transaction {
   avatar: string
@@ -26,18 +26,22 @@ export default function OverviewTransactions({ transactions, navigateToTransacti
       </div>
       <div className='flex flex-col'>
         {transactions && (
-          transactions.map((pot, index) => (
-            index < 4 && (
-              <div key={index} className='w-[130px] flex items-center'>
-                <div className='w-1 rounded'>
-                  <div className='ml-200'>
-                    <p className='text-preset-5 text-grey500 mb-50 w-[100px]'>{pot.name}</p>
-                    <p className='text-preset-4-bold text-grey900'>${pot.total}</p>
-                  </div>
+          transactions.map((transaction, index) => {
+            console.log(transaction.avatar)
+            return (
+              index < 6 && (
+                <div key={index} className='w-[130px] flex items-center'>
+                  {/* <div className='w-1 rounded'> */}
+                  {/* <div className='ml-200'> */}
+                  <img src={transaction.avatar} alt='avatar' />
+                  <p className='text-preset-5 text-grey500 mb-50 w-[100px]'>{transaction.name}</p>
+                  <p className='text-preset-4-bold text-grey900'>${transaction.amount.toFixed(2)}</p>
                 </div>
-              </div>
+                // </div>
+                // </div>
+              )
             )
-          ))
+          })
         )}
       </div>
     </div>

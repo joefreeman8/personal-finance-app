@@ -1,12 +1,12 @@
 import { Link, useLocation } from "react-router-dom"
 import '../../styles/Navbar.css'
 
-import NavLogo from '../../assets/images/logo-large.svg'
-import NavOverviewIcon from '../../assets/images/icon-nav-overview.svg'
-import NavTransactionsIcon from '../../assets/images/icon-nav-transactions.svg'
-import NavBudgetsIcon from '../../assets/images/icon-nav-budgets.svg'
-import NavPotsIcon from '../../assets/images/icon-nav-pots.svg'
-import NavRecurringBillsIcon from '../../assets/images/icon-nav-recurring-bills.svg'
+import NavLogo from '/assets/images/logo-large.svg'
+import NavOverviewIcon from '/assets/images/icon-nav-overview.svg'
+import NavTransactionsIcon from '/assets/images/icon-nav-transactions.svg'
+import NavBudgetsIcon from '/assets/images/icon-nav-budgets.svg'
+import NavPotsIcon from '/assets/images/icon-nav-pots.svg'
+import NavRecurringBillsIcon from '/assets/images/icon-nav-recurring-bills.svg'
 
 export default function Navbar() {
   const location = useLocation()

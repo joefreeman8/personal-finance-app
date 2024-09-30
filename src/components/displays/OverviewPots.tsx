@@ -1,5 +1,5 @@
-import rightArrow from '../../assets/images/icon-caret-right.svg'
-import potIcon from '../../assets/images/icon-pot.svg'
+import rightArrow from '/assets/images/icon-caret-right.svg'
+import potIcon from '/assets/images/icon-pot.svg'
 
 interface Pot {
   name: string
