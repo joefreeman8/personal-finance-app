@@ -11,7 +11,7 @@ interface Transaction {
 
 interface OverviewTransactionsProps {
   transactions: Transaction[] // Array of transactions
-  navigateToTransactions: () => void // Function to navigate to pots
+  navigateToTransactions: () => void // Function to navigate to transactions
 }
 
 export default function OverviewTransactions({ transactions, navigateToTransactions }: OverviewTransactionsProps) {
