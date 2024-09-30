@@ -1,5 +1,6 @@
 import OverviewPots from '../components/displays/OverviewPots'
-import { balance, pots } from '../data/data.json'
+import OverviewTransactions from '../components/displays/OverviewTransactions'
+import { balance, pots, transactions } from '../data/data.json'
 import { useNavigate } from 'react-router-dom'
 
 
@@ -7,14 +8,22 @@ import { useNavigate } from 'react-router-dom'
 export default function Overview() {
 
   const navigate = useNavigate()
-  const currentBalance: number = Number(balance.current.toFixed(2))
-  const totalIncome: number = Number(balance.income.toFixed(2))
-  const totalExpenses: number = Number(balance.expenses.toFixed(2))
+
+  // toLocaleString() is used to provide the comma's in the string for the number. 
+  // 'undefined' allows the default to be used which gives the comma
+  // minimumFractionDigits & maximumFractionDigits is ensuring just two decimal places show.
+  const currentBalance: string = balance.current.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })
+  const totalIncome: string = balance.income.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })
+  const totalExpenses: string = balance.expenses.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })
 
 
 
   function navigateToPots() {
     navigate('/pots')
+  }
+
+  function navigateToTransactions() {
+    navigate('/transactions')
   }
 
   return (
@@ -49,16 +58,16 @@ export default function Overview() {
       <div className='flex flex-col xl:flex-row'>
         <div className='flex flex-col xl:w-7/12 xl:mr-400'>
           <OverviewPots pots={pots} navigateToPots={navigateToPots} />
+          <OverviewTransactions transactions={transactions} navigateToTransactions={navigateToTransactions} />
         </div>
 
-        <div className='border-2 border-pink '>Transactions</div>
-      </div>
-      <div className='flex flex-col xl:w-2/5 border border-red'>
-        <div>
-          <h2>Budgets</h2>
-        </div>
-        <div>
-          <h2>Recurring Bills</h2>
+        <div className='flex flex-col xl:w-2/5 border border-red'>
+          <div>
+            <h2>Budgets</h2>
+          </div>
+          <div>
+            <h2>Recurring Bills</h2>
+          </div>
         </div>
       </div>
 

@@ -19,7 +19,7 @@ function App() {
             bg-beige100 min-h-screen"
         >
           <Routes>
-            <Route path="/overview" element={<Overview />} />
+            <Route path="/" element={<Overview />} />
             <Route path="/transactions" element={<Transactions />} />
             <Route path="/budgets" element={<Budgets />} />
             <Route path="/pots" element={<Pots />} />

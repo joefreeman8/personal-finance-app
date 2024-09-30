@@ -56,7 +56,7 @@ export default function Navbar() {
       </figure>
 
       {/* Overview */}
-      <Link to="/overview" className={getLinkClasses('/overview')}>
+      <Link to="/" className={getLinkClasses('/overview')}>
         <img
           src={NavOverviewIcon}
           alt="Overview"
