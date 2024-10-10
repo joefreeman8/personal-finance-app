@@ -2,8 +2,9 @@ import { useMemo } from 'react'
 import { useNavigate } from 'react-router-dom'
 import OverviewPots from '../components/displays/OverviewPots'
 import OverviewTransactions from '../components/displays/OverviewTransactions'
-import { balance, pots, transactions } from '../data/data.json'
+import { balance, pots, transactions, budgets } from '../data/data.json'
 import BalanceCard from '../components/displays/BalanceCard'
+import OverviewBudgets from '../components/displays/OverviewBudgets'
 
 
 // Helper function to format currency values
@@ -30,6 +31,7 @@ export default function Overview() {
   // Navigation functions
   const navigateToPots = () => navigate('/pots')
   const navigateToTransactions = () => navigate('/transactions')
+  const navigateToBudgets = () => navigate('/budgets')
 
   return (
     <section className="py-300 px-200 md:py-400 md:px-500">
@@ -51,7 +53,7 @@ export default function Overview() {
 
         <div className='flex flex-col xl:w-2/5 border border-red'>
           <div>
-            <h2>Budgets</h2>
+            <OverviewBudgets budgets={budgets} navigateToBudgets={navigateToBudgets} />
           </div>
           <div>
             <h2>Recurring Bills</h2>
