@@ -1,33 +1,48 @@
-import { Doughnut } from 'react-chartjs-2';
-import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
-import rightArrow from '/assets/images/icon-caret-right.svg';
+import { Doughnut } from 'react-chartjs-2'
+import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js'
+import rightArrow from '/assets/images/icon-caret-right.svg'
 
-ChartJS.register(ArcElement, Tooltip, Legend);
+ChartJS.register(ArcElement, Tooltip, Legend)
 
 interface Budget {
-  category: string;
-  maximum: number;
-  theme: string;
+  category: string
+  maximum: number
+  theme: string
 }
 
 interface OverviewBudgetsProps {
-  budgets: Budget[];
-  navigateToBudgets: () => void;
+  budgets: Budget[]
+  navigateToBudgets: () => void
 }
 
 export default function OverviewBudgets({ budgets, navigateToBudgets }: OverviewBudgetsProps) {
 
-  const totalSpent = 375; // This should be calculated from actual spending data
-  const totalBudget = budgets.reduce((sum, budget) => sum + budget.maximum, 0);
+  const totalSpent = 375 // This should be calculated from actual spending data
+  const totalBudget = budgets.reduce((sum, budget) => sum + budget.maximum, 0)
 
   const chartData = {
     labels: budgets.map(budget => budget.category),
-    datasets: [{
-      data: budgets.map(budget => budget.maximum),
-      backgroundColor: budgets.map(budget => budget.theme),
-      borderWidth: 0,
-    }],
-  };
+    datasets: [
+      {
+        data: budgets.map(budget => budget.maximum),
+        backgroundColor: budgets.map(budget => budget.theme),
+        borderWidth: 0,
+        weight: 1,
+      },
+      {
+        data: budgets.map(budget => budget.maximum),
+        backgroundColor: budgets.map(budget => {
+          // Convert hex to RGB and add 0.25 alpha
+          const r = parseInt(budget.theme.slice(1, 3), 16);
+          const g = parseInt(budget.theme.slice(3, 5), 16);
+          const b = parseInt(budget.theme.slice(5, 7), 16);
+          return `rgba(${r}, ${g}, ${b}, 0.75)`;
+        }),
+        borderWidth: 0,
+        weight: 0.5,
+      }
+    ],
+  }
 
   const chartOptions = {
     cutout: '70%',
@@ -35,8 +50,11 @@ export default function OverviewBudgets({ budgets, navigateToBudgets }: Overview
       legend: {
         display: false,
       },
+      tooltip: {
+        enabled: false,
+      },
     },
-  };
+  }
 
   return (
     <div className='p-300 md:p-400 rounded-xl bg-white'>
@@ -69,5 +87,5 @@ export default function OverviewBudgets({ budgets, navigateToBudgets }: Overview
         </div>
       </div>
     </div>
-  );
+  )
 }
