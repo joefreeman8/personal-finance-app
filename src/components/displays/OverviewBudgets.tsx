@@ -67,16 +67,16 @@ export default function OverviewBudgets({ budgets, navigateToBudgets, formatCurr
         </button>
       </div>
       <div className='flex flex-col md:flex-row md:py-100 md:h-[302px] md:items-center'>
-        <div className='md:w-4/5 xl:w-2/3 relative md:h-[240px] flex justify-center'>
+        <div className='md:w-4/5 xl:w-2/3 relative h-[240px] flex justify-center'>
           <Doughnut data={chartData} options={chartOptions} />
           <div className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center'>
             <p className='text-preset-1 text-grey900 mb-100'>${totalSpent}</p>
             <p className='text-preset-5 text-grey500'>of ${totalBudget} limit</p>
           </div>
         </div>
-        <div className='md:w-1/5 xl:w-1/3 md:ml-200 flex flex-col justify-between'>
+        <div className='mt-200 md:mt-0 md:w-1/5 xl:w-1/3 md:ml-200 flex flex-row flex-wrap md:flex-col justify-between'>
           {budgets.map((budget, index) => (
-            <div key={index} className='flex mb-200 last:mb-0'>
+            <div key={index} className='w-[calc(50%-8px)] md:w-full flex mb-200 last:mb-0'>
               <div className='w-1 h-[43px] rounded mr-200' style={{ backgroundColor: budget.theme }}></div>
               <div>
                 <p className='text-preset-5 text-grey500 mb-50'>{budget.category}</p>
