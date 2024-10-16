@@ -51,13 +51,9 @@ export default function Overview() {
           <OverviewTransactions transactions={transactions} navigateToTransactions={navigateToTransactions} />
         </div>
 
-        <div className='flex flex-col xl:w-2/5 border border-red'>
-          <div>
-            <OverviewBudgets budgets={budgets} navigateToBudgets={navigateToBudgets} formatCurrency={formatCurrency} />
-          </div>
-          <div>
-            <h2>Recurring Bills</h2>
-          </div>
+        <div className='flex flex-col xl:w-2/5'>
+          <OverviewBudgets budgets={budgets} navigateToBudgets={navigateToBudgets} formatCurrency={formatCurrency} />
+          <h2>Recurring Bills</h2>
         </div>
       </div>
 

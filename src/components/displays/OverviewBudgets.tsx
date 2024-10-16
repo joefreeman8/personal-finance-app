@@ -58,7 +58,7 @@ export default function OverviewBudgets({ budgets, navigateToBudgets, formatCurr
   }
 
   return (
-    <div className='p-300 md:p-400 rounded-xl bg-white'>
+    <div className='mt-300 xl:mt-0 p-300 md:p-400 mt-300 rounded-xl bg-white'>
       <div className='flex justify-between mb-250'>
         <h2 className='text-preset-2 text-grey900'>Budgets</h2>
         <button className='flex items-center text-grey500 text-preset-4'>
@@ -66,15 +66,15 @@ export default function OverviewBudgets({ budgets, navigateToBudgets, formatCurr
           <img src={rightArrow} alt='icon-pointing-right' />
         </button>
       </div>
-      <div className='flex flex-col md:flex-row md:py-100 md:h-[302px] items-center'>
-        <div className='md:w-2/3 relative'>
+      <div className='flex flex-col md:flex-row md:py-100 md:h-[302px] md:items-center'>
+        <div className='md:w-4/5 xl:w-2/3 relative md:h-[240px] flex justify-center'>
           <Doughnut data={chartData} options={chartOptions} />
           <div className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center'>
             <p className='text-preset-1 text-grey900 mb-100'>${totalSpent}</p>
             <p className='text-preset-5 text-grey500'>of ${totalBudget} limit</p>
           </div>
         </div>
-        <div className='md:w-1/3 md:ml-200 flex flex-col justify-between'>
+        <div className='md:w-1/5 xl:w-1/3 md:ml-200 flex flex-col justify-between'>
           {budgets.map((budget, index) => (
             <div key={index} className='flex mb-200 last:mb-0'>
               <div className='w-1 h-[43px] rounded mr-200' style={{ backgroundColor: budget.theme }}></div>
