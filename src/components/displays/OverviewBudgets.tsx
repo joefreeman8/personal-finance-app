@@ -13,9 +13,10 @@ interface Budget {
 interface OverviewBudgetsProps {
   budgets: Budget[]
   navigateToBudgets: () => void
+  formatCurrency: (amount: number) => string
 }
 
-export default function OverviewBudgets({ budgets, navigateToBudgets }: OverviewBudgetsProps) {
+export default function OverviewBudgets({ budgets, navigateToBudgets, formatCurrency }: OverviewBudgetsProps) {
 
   const totalSpent = 375 // This should be calculated from actual spending data
   const totalBudget = budgets.reduce((sum, budget) => sum + budget.maximum, 0)
@@ -45,7 +46,7 @@ export default function OverviewBudgets({ budgets, navigateToBudgets }: Overview
   }
 
   const chartOptions = {
-    cutout: '70%',
+    cutout: '65%',
     plugins: {
       legend: {
         display: false,
@@ -65,22 +66,21 @@ export default function OverviewBudgets({ budgets, navigateToBudgets }: Overview
           <img src={rightArrow} alt='icon-pointing-right' />
         </button>
       </div>
-      <div className='flex flex-col md:flex-row'>
-        <div className='md:w-1/2 relative'>
+      <div className='flex flex-col md:flex-row md:py-100 md:h-[302px] items-center'>
+        <div className='md:w-2/3 relative'>
           <Doughnut data={chartData} options={chartOptions} />
           <div className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center'>
-            <p className='text-preset-4 text-grey500'>Total Spent</p>
-            <p className='text-preset-1 text-grey900'>${totalSpent}</p>
+            <p className='text-preset-1 text-grey900 mb-100'>${totalSpent}</p>
             <p className='text-preset-5 text-grey500'>of ${totalBudget} limit</p>
           </div>
         </div>
-        <div className='md:w-1/2 md:ml-250 flex flex-col justify-between'>
+        <div className='md:w-1/3 md:ml-200 flex flex-col justify-between'>
           {budgets.map((budget, index) => (
-            <div key={index} className='flex items-center mb-200'>
-              <div className='w-1 h-[40px] rounded mr-200' style={{ backgroundColor: budget.theme }}></div>
+            <div key={index} className='flex mb-200 last:mb-0'>
+              <div className='w-1 h-[43px] rounded mr-200' style={{ backgroundColor: budget.theme }}></div>
               <div>
-                <p className='text-preset-5 text-grey500'>{budget.category}</p>
-                <p className='text-preset-4-bold text-grey900'>${budget.maximum}</p>
+                <p className='text-preset-5 text-grey500 mb-50'>{budget.category}</p>
+                <p className='text-preset-4-bold text-grey900'>${formatCurrency(budget.maximum)}</p>
               </div>
             </div>
           ))}

@@ -53,7 +53,7 @@ export default function Overview() {
 
         <div className='flex flex-col xl:w-2/5 border border-red'>
           <div>
-            <OverviewBudgets budgets={budgets} navigateToBudgets={navigateToBudgets} />
+            <OverviewBudgets budgets={budgets} navigateToBudgets={navigateToBudgets} formatCurrency={formatCurrency} />
           </div>
           <div>
             <h2>Recurring Bills</h2>
