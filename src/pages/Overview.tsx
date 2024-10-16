@@ -33,6 +33,7 @@ export default function Overview() {
   const navigateToPots = () => navigate('/pots')
   const navigateToTransactions = () => navigate('/transactions')
   const navigateToBudgets = () => navigate('/budgets')
+  const navigateToRecurringBills = () => navigate('/recurring-bills')
 
   return (
     <main className="py-300 px-200 md:py-400 md:px-500">
@@ -54,7 +55,7 @@ export default function Overview() {
 
         <div className='flex flex-col xl:w-2/5'>
           <OverviewBudgets budgets={budgets} navigateToBudgets={navigateToBudgets} formatCurrency={formatCurrency} />
-          <OverviewRecurringBills />
+          <OverviewRecurringBills transactions={transactions} navigateToRecurringBills={navigateToRecurringBills} />
         </div>
       </div>
 

@@ -33,7 +33,7 @@ export default function OverviewBudgets({ budgets, navigateToBudgets, formatCurr
       {
         data: budgets.map(budget => budget.maximum),
         backgroundColor: budgets.map(budget => {
-          // Convert hex to RGB and add 0.25 alpha
+          // Convert hex to RGB and add 0.75 alpha
           const r = parseInt(budget.theme.slice(1, 3), 16);
           const g = parseInt(budget.theme.slice(3, 5), 16);
           const b = parseInt(budget.theme.slice(5, 7), 16);
