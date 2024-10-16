@@ -5,6 +5,7 @@ import OverviewTransactions from '../components/displays/OverviewTransactions'
 import { balance, pots, transactions, budgets } from '../data/data.json'
 import BalanceCard from '../components/displays/BalanceCard'
 import OverviewBudgets from '../components/displays/OverviewBudgets'
+import OverviewRecurringBills from '../components/displays/OverviewRecurringBills'
 
 
 // Helper function to format currency values
@@ -34,7 +35,7 @@ export default function Overview() {
   const navigateToBudgets = () => navigate('/budgets')
 
   return (
-    <section className="py-300 px-200 md:py-400 md:px-500">
+    <main className="py-300 px-200 md:py-400 md:px-500">
       <h1 className="text-preset-1 mb-400 xl:mb-0 xl:my-100">
         Overview
       </h1>
@@ -53,10 +54,10 @@ export default function Overview() {
 
         <div className='flex flex-col xl:w-2/5'>
           <OverviewBudgets budgets={budgets} navigateToBudgets={navigateToBudgets} formatCurrency={formatCurrency} />
-          <h2>Recurring Bills</h2>
+          <OverviewRecurringBills />
         </div>
       </div>
 
-    </section >
+    </main >
   )
 }

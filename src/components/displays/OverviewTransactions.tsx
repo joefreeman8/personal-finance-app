@@ -37,7 +37,7 @@ export default function OverviewTransactions({ transactions, navigateToTransacti
   }
 
   return (
-    <div className='mt-300 p-300 md:p-400 rounded-xl bg-white'>
+    <section className='mt-300 p-300 md:p-400 rounded-xl bg-white'>
       <div className='flex justify-between mb-150'>
         <h2 className='text-preset-2 text-grey900'>Transactions</h2>
         <button className='flex items-center text-grey500 text-preset-4'>
@@ -67,6 +67,6 @@ export default function OverviewTransactions({ transactions, navigateToTransacti
           ))
         )}
       </div>
-    </div>
+    </section>
   )
 }

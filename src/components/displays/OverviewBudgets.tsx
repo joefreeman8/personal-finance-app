@@ -58,7 +58,7 @@ export default function OverviewBudgets({ budgets, navigateToBudgets, formatCurr
   }
 
   return (
-    <div className='mt-300 xl:mt-0 p-300 md:p-400 mt-300 rounded-xl bg-white'>
+    <section className='mt-300 xl:mt-0 p-300 md:p-400 mt-300 rounded-xl bg-white'>
       <div className='flex justify-between mb-250'>
         <h2 className='text-preset-2 text-grey900'>Budgets</h2>
         <button className='flex items-center text-grey500 text-preset-4'>
@@ -86,6 +86,6 @@ export default function OverviewBudgets({ budgets, navigateToBudgets, formatCurr
           ))}
         </div>
       </div>
-    </div>
+    </section>
   )
 }
