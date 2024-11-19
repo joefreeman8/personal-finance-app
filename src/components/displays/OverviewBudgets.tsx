@@ -58,7 +58,7 @@ export default function OverviewBudgets({ budgets, navigateToBudgets, formatCurr
   }
 
   return (
-    <section className='mt-300 xl:mt-0 p-300 md:p-400 mt-300 rounded-xl bg-white'>
+    <section className='mt-300 xl:mt-0 p-300 md:p-400 md:pb-250 mt-300 rounded-xl bg-white'>
       <div className='flex justify-between mb-250'>
         <h2 className='text-preset-2 text-grey900'>Budgets</h2>
         <button className='flex items-center text-grey500 text-preset-4'>
@@ -66,7 +66,7 @@ export default function OverviewBudgets({ budgets, navigateToBudgets, formatCurr
           <img src={rightArrow} alt='icon-pointing-right' />
         </button>
       </div>
-      <div className='flex flex-col md:flex-row md:py-100 md:h-[302px] md:items-center'>
+      <div className='flex flex-col md:flex-row md:h-[302px] md:items-center'>
         <div className='md:w-4/5 xl:w-2/3 relative h-[240px] flex justify-center'>
           <Doughnut data={chartData} options={chartOptions} />
           <div className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center'>

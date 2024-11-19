@@ -50,7 +50,7 @@ export default function OverviewTransactions({ transactions, navigateToTransacti
           transactions.map((transaction, index) => (
             index < 5 && (
               <div key={index} className={`${index !== 4 ? 'border-b' : ''}`}>
-                <div className={`flex items-center justify-between w-full ${index !== 4 ? 'my-250' : 'mt-250'}`}>
+                <div className={`flex items-center justify-between w-full ${index !== 4 ? 'my-250' : 'mt-250 mb-50'}`}>
                   <div className='flex flex-row items-center'>
                     <img src={transaction.avatar} alt='avatar' className='rounded-full h-[40px] mr-200' />
                     <p className='my-100 text-preset-4-bold text-grey900'>{transaction.name}</p>
