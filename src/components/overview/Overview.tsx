@@ -1,11 +1,11 @@
 import { useMemo } from 'react'
 import { useNavigate } from 'react-router-dom'
-import OverviewPots from '../components/displays/OverviewPots'
-import OverviewTransactions from '../components/displays/OverviewTransactions'
-import { balance, pots, transactions, budgets } from '../data/data.json'
-import BalanceCard from '../components/displays/BalanceCard'
-import OverviewBudgets from '../components/displays/OverviewBudgets'
-import OverviewRecurringBills from '../components/displays/OverviewRecurringBills'
+import OverviewPots from './overviewDisplays/OverviewPots'
+import OverviewTransactions from './overviewDisplays/OverviewTransactions'
+import { balance, pots, transactions, budgets } from '../../data/data.json'
+import BalanceCard from './overviewDisplays/BalanceCard'
+import OverviewBudgets from './overviewDisplays/OverviewBudgets'
+import OverviewRecurringBills from './overviewDisplays/OverviewRecurringBills'
 
 
 // Helper function to format currency values
@@ -36,7 +36,7 @@ export default function Overview() {
   const navigateToRecurringBills = () => navigate('/recurring-bills')
 
   return (
-    <main className="py-300 px-200 md:py-400 md:px-500">
+    <section className="py-300 px-200 md:py-400 md:px-500">
       <h1 className="text-preset-1 mb-400 xl:mb-0 xl:my-100">
         Overview
       </h1>
@@ -59,6 +59,6 @@ export default function Overview() {
         </div>
       </div>
 
-    </main >
+    </section>
   )
 }

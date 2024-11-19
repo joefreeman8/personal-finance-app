@@ -1,10 +1,10 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/common/Navbar";
-import Overview from "./pages/Overview";
-import Transactions from "./pages/Transactions";
-import Budgets from "./pages/Budgets";
-import RecurringBills from "./pages/RecurringBills";
-import Pots from "./pages/Pots";
+import Overview from "./components/overview/Overview";
+import Transactions from "./components/transactions/Transactions";
+import Budgets from "./components/pages/Budgets";
+import RecurringBills from "./components/pages/RecurringBills";
+import Pots from "./components/pages/Pots";
 
 function App() {
   return (
