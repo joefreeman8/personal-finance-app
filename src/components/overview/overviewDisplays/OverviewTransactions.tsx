@@ -1,4 +1,5 @@
 import rightArrow from '/assets/images/icon-caret-right.svg'
+import { formatDateString, formatAmount, styleAmount } from '../../../utilities/formattingFunctions'
 
 interface Transaction {
   avatar: string
@@ -15,26 +16,6 @@ interface OverviewTransactionsProps {
 }
 
 export default function OverviewTransactions({ transactions, navigateToTransactions }: OverviewTransactionsProps) {
-
-  function formatDateString(dateString: string): string {
-    return new Date(dateString).toLocaleDateString('en-GB', {
-      day: '2-digit',
-      month: 'short',
-      year: 'numeric'
-    })
-  }
-
-  function formatAmount(amount: number): string {
-    if (amount >= 0) {
-      return `+$${amount.toFixed(2)}`
-    } else {
-      return `-$${amount.toFixed(2).toString().slice(1)}`
-    }
-  }
-
-  function styleAmount(amount: number): string {
-    return amount > 0 ? 'text-green' : 'text-grey900'
-  }
 
   return (
     <section className='mt-300 p-300 md:p-400 rounded-xl bg-white'>

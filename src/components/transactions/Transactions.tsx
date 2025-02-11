@@ -1,6 +1,24 @@
+import { useState } from 'react';
+import { transactions } from '../../data/data.json'
+import { formatDateString, formatAmount, styleAmount } from '../../utilities/formattingFunctions'
 import searchIcon from '/assets/images/icon-search.svg'
 
+interface Transaction {
+  avatar: string,
+  name: string,
+  category: string,
+  date: string,
+  amount: number,
+  recurring: false
+}
+
 export default function Transactions() {
+
+  const [search, setSearch] = useState('')
+
+
+
+
   return (
     <section className="py-300 px-200 md:py-400 md:px-500">
       <h1 className="text-preset-1 mb-400 xl:mb-0 xl:my-100">Transactions</h1>
@@ -11,7 +29,7 @@ export default function Transactions() {
               <input
                 type="text"
                 placeholder="Search transaction"
-                className=""
+                className="w-full mr-100"
               />
               <img src={searchIcon} alt="Search Icon" />
             </div>
@@ -50,11 +68,29 @@ export default function Transactions() {
             </select>
           </div>
         </form>
-        <section className='flex flex-row justify-between items-center my-300 h-[46px] w-full px-200 py-150 border-b'>
+        <div className='flex flex-row items-center my-300 h-[46px] w-full px-200 py-150 border-b'>
           <h3 className='text-preset-5 text-grey500 mr-400 w-[428px]'>Recipient / Sender</h3>
-          <h3 className='text-preset-5 text-grey500 mr-400'>Category</h3>
-          <h3 className='text-preset-5 text-grey500 mr-400'>Transaction Date</h3>
+          <h3 className='text-preset-5 text-grey500 mr-400 w-[120px]'>Category</h3>
+          <h3 className='text-preset-5 text-grey500 mr-400 w-[120px]'>Transaction Date</h3>
           <h3 className='text-preset-5 text-grey500 w-[200px] flex justify-end'>Amount</h3>
+        </div>
+        <section>
+          {transactions.map((transaction, idx) => (
+            <div key={idx} className='flex flex-row items-center w-fill px-200 border-b py-200'>
+              <div className='flex flex-row items-center w-[428px] mr-400'>
+                <img className='rounded-full w-[40px] h-[40px] mr-200' src={transaction.avatar} alt={transaction.name} />
+                <h4 className='text-preset-4-bold text-grey500  my-100 text-grey900'>{transaction.name}</h4>
+              </div>
+              <p className='text-preset-5 text-grey500 mr-400 w-[120px]'>{transaction.category}</p>
+              <p className='text-preset-5 text-grey500 mr-400 w-[120px]'>{formatDateString(transaction.date)}</p>
+              <p className={`text-preset-4-bold w-[200px] flex justify-end ${styleAmount(transaction.amount)}`}>
+                {formatAmount(transaction.amount)}
+              </p>
+            </div>
+          ))}
+          <div>
+
+          </div>
         </section>
       </div>
 
