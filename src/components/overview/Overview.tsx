@@ -17,6 +17,7 @@ const formatCurrency = (amount: number): string => {
   })
 }
 
+
 export default function Overview() {
   const navigate = useNavigate()
 
