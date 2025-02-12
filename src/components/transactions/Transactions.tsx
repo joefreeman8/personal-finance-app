@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState } from 'react'
 import { transactions } from '../../data/data.json'
 import { formatDateString, formatAmount, styleAmount } from '../../utilities/formattingFunctions'
 import searchIcon from '/assets/images/icon-search.svg'
@@ -14,9 +14,47 @@ interface Transaction {
 
 export default function Transactions() {
 
-  const [search, setSearch] = useState('')
+  const [searchTerm, setSearchTerm] = useState('')
+
+  const handleSearchChange = (e) => {
+    setSearchTerm(e.target.value)
+  }
+
+  const filteredTransactions = transactions.filter(transaction =>
+    transaction.name.toLowerCase().includes(searchTerm.toLowerCase())
+  )
+
+  //***** FOR PAGINATION 
+  const [currentPage, setCurrentPage] = useState(1)
+
+  const itemsPerPage = 10
+  const indexOfLastItem = currentPage * itemsPerPage
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage
+  const currentTransactions = filteredTransactions.slice(indexOfFirstItem, indexOfLastItem)
+  const totalPages = Math.ceil(filteredTransactions.length / itemsPerPage)
+
+  const pageNumbers = []
+  for (let i = 1; i <= totalPages; i++) {
+    pageNumbers.push(i)
+  }
+
+  const handlePageChange = (pageNumber: number) => {
+    setCurrentPage(pageNumber)
+  }
+
+  const handlePrevious = () => {
+    setCurrentPage(prev => Math.max(prev - 1, 1))
+  }
+
+  const handleNext = () => {
+    setCurrentPage(prev => Math.min(prev + 1, totalPages))
+  }
+  // ****** 
 
 
+
+
+  console.log(searchTerm)
 
 
   return (
@@ -26,10 +64,14 @@ export default function Transactions() {
         <form className="flex flex-row justify-between items-center my-50 h-[46px] w-full">
           <div className="flex-1">
             <div className="w-[320px] px-200 py-150 border border-grey900 rounded flex flex-row justify-between">
+              <label hidden htmlFor="searchTransaction">Search</label>
               <input
                 type="text"
+                name='searchTransaction'
                 placeholder="Search transaction"
                 className="w-full mr-100"
+                value={searchTerm}
+                onChange={handleSearchChange}
               />
               <img src={searchIcon} alt="Search Icon" />
             </div>
@@ -75,7 +117,7 @@ export default function Transactions() {
           <h3 className='text-preset-5 text-grey500 w-[200px] flex justify-end'>Amount</h3>
         </div>
         <section>
-          {transactions.map((transaction, idx) => (
+          {currentTransactions.map((transaction, idx) => (
             <div key={idx} className='flex flex-row items-center w-fill px-200 border-b py-200'>
               <div className='flex flex-row items-center w-[428px] mr-400'>
                 <img className='rounded-full w-[40px] h-[40px] mr-200' src={transaction.avatar} alt={transaction.name} />
@@ -88,12 +130,37 @@ export default function Transactions() {
               </p>
             </div>
           ))}
-          <div>
-
+          <div className='flex justify-between items-end mt-300 h-[64px]'>
+            <button
+              className='flex items-center justify-center border border-beige500 w-[95px] h-[40px] rounded-lg'
+              onClick={handlePrevious}
+            >
+              Prev
+            </button>
+            <div className='flex flex-row items-center justify-center'>
+              {pageNumbers.map((num) => (
+                <button
+                  key={num}
+                  className={`
+                    ${currentPage === num ? 'bg-grey900 text-white' : 'bg-white text-grey900'}
+                    flex items-center justify-center border border-beige500 w-[40px] h-[40px] mx-50 rounded-lg
+                    `}
+                  onClick={() => handlePageChange(num)}
+                >
+                  {num}
+                </button>
+              ))}
+            </div>
+            <button
+              className='flex items-center justify-center border border-beige500 w-[95px] h-[40px] rounded-lg'
+              onClick={handleNext}
+            >
+              Next
+            </button>
           </div>
         </section>
       </div>
 
     </section>
-  );
+  )
 }
