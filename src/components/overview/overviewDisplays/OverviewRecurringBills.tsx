@@ -1,6 +1,6 @@
 import rightArrow from '/assets/images/icon-caret-right.svg'
 
-interface Transaction {
+type Transaction = {
   category: string
   amount: number
   recurring: boolean
