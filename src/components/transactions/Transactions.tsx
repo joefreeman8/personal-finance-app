@@ -2,6 +2,8 @@ import { useState } from 'react'
 import { transactions } from '../../data/data.json'
 import { formatDateString, formatAmount, styleAmount } from '../../utilities/formattingFunctions'
 import searchIcon from '/assets/images/icon-search.svg'
+import leftIcon from '/assets/images/icon-caret-left.svg'
+import rightIcon from '/assets/images/icon-caret-right.svg'
 
 interface Transaction {
   avatar: string,
@@ -132,9 +134,10 @@ export default function Transactions() {
           ))}
           <div className='flex justify-between items-end mt-300 h-[64px]'>
             <button
-              className='flex items-center justify-center border border-beige500 w-[95px] h-[40px] rounded-lg'
+              className='text-preset-4 text-grey900 flex items-center justify-evenly border border-beige500 w-[95px] h-[40px] rounded-lg'
               onClick={handlePrevious}
             >
+              <img src={leftIcon} alt="Arrow pointing to go to a previous page" />
               Prev
             </button>
             <div className='flex flex-row items-center justify-center'>
@@ -152,10 +155,11 @@ export default function Transactions() {
               ))}
             </div>
             <button
-              className='flex items-center justify-center border border-beige500 w-[95px] h-[40px] rounded-lg'
+              className='text-preset-4 text-grey900 flex items-center justify-evenly border border-beige500 w-[95px] h-[40px] rounded-lg'
               onClick={handleNext}
             >
               Next
+              <img src={rightIcon} alt="Arrow pointing to go to the next page" />
             </button>
           </div>
         </section>
