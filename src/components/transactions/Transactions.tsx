@@ -6,14 +6,6 @@ import leftIcon from '/assets/images/icon-caret-left.svg'
 import rightIcon from '/assets/images/icon-caret-right.svg'
 import SortTransactions from './SortTransactions'
 
-interface Transaction {
-  avatar: string,
-  name: string,
-  category: string,
-  date: string,
-  amount: number,
-  recurring: false
-}
 
 export default function Transactions() {
 
