@@ -1,5 +1,5 @@
 import rightArrow from '/assets/images/icon-caret-right.svg'
-import { formatDateString, formatAmount, styleAmount } from '../../../utilities/formattingFunctions'
+import { formatDateString, formatAmount, styleAmount } from '../../../utilities/formattingHelpers'
 
 interface Transaction {
   avatar: string

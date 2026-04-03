@@ -1,4 +1,4 @@
-export function formatDateString(dateString: string): string {
+export function formatDateString(dateString: string) {
   return new Date(dateString).toLocaleDateString('en-GB', {
     day: '2-digit',
     month: 'short',
@@ -6,8 +6,7 @@ export function formatDateString(dateString: string): string {
   })
 }
 
-// .toLocaleString provides the comma seperator for larger numbers
-export function formatAmount(amount: number): string {
+export function formatAmount(amount: number) {
   if (amount >= 0) {
     return `+$${amount.toLocaleString(undefined, {
       minimumFractionDigits: 2,
@@ -21,9 +20,6 @@ export function formatAmount(amount: number): string {
   }
 }
 
-
-
-
-export function styleAmount(amount: number): string {
+export function styleAmount(amount: number) {
   return amount > 0 ? 'text-green' : 'text-grey900'
 }

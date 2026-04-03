@@ -1,21 +1,26 @@
-import { useState } from 'react'
-import { transactions } from '../../data/data.json'
-import { formatDateString, formatAmount, styleAmount } from '../../utilities/formattingFunctions'
-import searchIcon from '/assets/images/icon-search.svg'
+import { SetStateAction, useState } from 'react'
+import { useSelector } from 'react-redux'
+
 import leftIcon from '/assets/images/icon-caret-left.svg'
 import rightIcon from '/assets/images/icon-caret-right.svg'
+import searchIcon from '/assets/images/icon-search.svg'
+
+import { selectSortedTransactions } from '../../state/sort/selectors'
+import { formatAmount, formatDateString, styleAmount } from '../../utilities/formattingHelpers'
+import FilterByCategory from './FilterByCategory'
 import SortTransactions from './SortTransactions'
 
 
 export default function Transactions() {
 
   const [searchTerm, setSearchTerm] = useState('')
+  const sortedTransactions = useSelector(selectSortedTransactions)
 
-  const handleSearchChange = (e) => {
+  const handleSearchChange = (e: { target: { value: SetStateAction<string> } }) => {
     setSearchTerm(e.target.value)
   }
 
-  const filteredTransactions = transactions.filter(transaction =>
+  const filteredTransactions = sortedTransactions.filter(transaction =>
     transaction.name.toLowerCase().includes(searchTerm.toLowerCase())
   )
 
@@ -47,11 +52,6 @@ export default function Transactions() {
   // ****** 
 
 
-
-
-  console.log(searchTerm)
-
-
   return (
     <section className="py-300 px-200 md:py-400 md:px-500">
       <h1 className="text-preset-1 mb-400 xl:mb-0 xl:my-100">
@@ -73,7 +73,10 @@ export default function Transactions() {
               <img src={searchIcon} alt="Search Icon" />
             </div>
           </div>
-          <SortTransactions />
+          <div className="flex flex-row">
+            <SortTransactions />
+            <FilterByCategory />
+          </div>
         </form>
         <div className='flex flex-row items-center my-300 h-[46px] w-full px-200 py-150 border-b'>
           <h3 className='text-preset-5 text-grey500 mr-400 w-[428px]'>Recipient / Sender</h3>
