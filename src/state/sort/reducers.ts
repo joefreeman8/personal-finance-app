@@ -1,6 +1,7 @@
 import { createReducer } from '@reduxjs/toolkit'
-import { SortValue } from './types'
+
 import { setSortByMethod } from './actions'
+import { SortValue } from './types'
 
 type SortState = {
   value: SortValue
