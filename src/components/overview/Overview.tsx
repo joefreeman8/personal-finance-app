@@ -1,11 +1,12 @@
 import { useMemo } from 'react'
 import { useNavigate } from 'react-router-dom'
-import OverviewPots from './overviewDisplays/OverviewPots'
-import OverviewTransactions from './overviewDisplays/OverviewTransactions'
-import { balance, pots, transactions, budgets } from '../../data/data.json'
+
+import { balance, budgets,pots, transactions } from '../../data/data.json'
 import BalanceCard from './overviewDisplays/BalanceCard'
 import OverviewBudgets from './overviewDisplays/OverviewBudgets'
+import OverviewPots from './overviewDisplays/OverviewPots'
 import OverviewRecurringBills from './overviewDisplays/OverviewRecurringBills'
+import OverviewTransactions from './overviewDisplays/OverviewTransactions'
 
 
 // Helper function to format currency values

@@ -1,6 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit'
-import sortReducer from './sort/reducers'
+
 import filterReducer from './filter/reducers'
+import sortReducer from './sort/reducers'
 
 export const store = configureStore({
   reducer: {

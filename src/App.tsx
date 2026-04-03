@@ -1,10 +1,11 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route,Routes } from "react-router-dom";
+
 import Navbar from "./components/common/Navbar";
 import Overview from "./components/overview/Overview";
-import Transactions from "./components/transactions/Transactions";
 import Budgets from "./components/pages/Budgets";
-import RecurringBills from "./components/pages/RecurringBills";
 import Pots from "./components/pages/Pots";
+import RecurringBills from "./components/pages/RecurringBills";
+import Transactions from "./components/transactions/Transactions";
 
 function App() {
   return (

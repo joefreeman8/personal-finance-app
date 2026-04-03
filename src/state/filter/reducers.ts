@@ -1,6 +1,7 @@
 import { createReducer } from "@reduxjs/toolkit"
-import { CategoryValue } from "./types"
+
 import { setCategory } from "./actions"
+import { CategoryValue } from "./types"
 
 type FilterState = {
   value: CategoryValue
