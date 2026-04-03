@@ -2,12 +2,12 @@ import { useMemo } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 import { balance, budgets, pots, transactions } from '../../data/data.json'
+import { formatCurrency } from '../../utilities/formattingHelpers'
 import BalanceCard from './overviewDisplays/BalanceCard'
 import OverviewBudgets from './overviewDisplays/OverviewBudgets'
 import OverviewPots from './overviewDisplays/OverviewPots'
 import OverviewRecurringBills from './overviewDisplays/OverviewRecurringBills'
 import OverviewTransactions from './overviewDisplays/OverviewTransactions'
-import { formatCurrency } from '../../utilities/formattingHelpers'
 
 export default function Overview() {
   const navigate = useNavigate()
