@@ -5,19 +5,18 @@ export function formatDateString(dateString: string) {
     year: 'numeric'
   })
 }
+const formatToLocaleString = (amount: number) => {
+  return `+$${amount.toLocaleString(undefined, {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2
+  })}`
+}
 
-export function formatAmount(amount: number) {
-  if (amount >= 0) {
-    return `+$${amount.toLocaleString(undefined, {
-      minimumFractionDigits: 2,
-      maximumFractionDigits: 2
-    })}`
-  } else {
-    return `-$${amount.toLocaleString(undefined, {
-      minimumFractionDigits: 2,
-      maximumFractionDigits: 2
-    }).slice(1)}`
-  }
+export function formatCurrency(amount: number) {
+  return amount >= 0
+    ? formatToLocaleString(amount)
+    : formatToLocaleString(amount).slice(1)
+
 }
 
 export function styleAmount(amount: number) {

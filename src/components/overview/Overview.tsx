@@ -1,23 +1,13 @@
 import { useMemo } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-import { balance, budgets,pots, transactions } from '../../data/data.json'
+import { balance, budgets, pots, transactions } from '../../data/data.json'
 import BalanceCard from './overviewDisplays/BalanceCard'
 import OverviewBudgets from './overviewDisplays/OverviewBudgets'
 import OverviewPots from './overviewDisplays/OverviewPots'
 import OverviewRecurringBills from './overviewDisplays/OverviewRecurringBills'
 import OverviewTransactions from './overviewDisplays/OverviewTransactions'
-
-
-// Helper function to format currency values
-// 'undefined' allows the default to be used which gives the comma
-const formatCurrency = (amount: number): string => {
-  return amount.toLocaleString(undefined, {
-    minimumFractionDigits: 2,
-    maximumFractionDigits: 2
-  })
-}
-
+import { formatCurrency } from '../../utilities/formattingHelpers'
 
 export default function Overview() {
   const navigate = useNavigate()
@@ -43,18 +33,15 @@ export default function Overview() {
         Overview
       </h1>
       <div className="flex flex-col md:flex-row my-400 md:justify-between">
-        {/* Reusable BalanceCard components for different balance types */}
         <BalanceCard title="Current Balance" amount={formattedBalances.current} primary />
         <BalanceCard title="Income" amount={formattedBalances.income} />
         <BalanceCard title="Expenses" amount={formattedBalances.expenses} />
       </div>
-
       <div className='flex flex-col xl:flex-row'>
         <div className='flex flex-col xl:w-7/12 xl:mr-400'>
           <OverviewPots pots={pots} navigateToPots={navigateToPots} />
           <OverviewTransactions transactions={transactions} navigateToTransactions={navigateToTransactions} />
         </div>
-
         <div className='flex flex-col xl:w-2/5'>
           <OverviewBudgets budgets={budgets} navigateToBudgets={navigateToBudgets} formatCurrency={formatCurrency} />
           <OverviewRecurringBills transactions={transactions} navigateToRecurringBills={navigateToRecurringBills} />
