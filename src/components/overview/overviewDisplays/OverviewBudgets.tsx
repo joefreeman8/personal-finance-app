@@ -1,4 +1,4 @@
-import { ArcElement, Chart as ChartJS, Legend,Tooltip } from 'chart.js'
+import { ArcElement, Chart as ChartJS, Legend, Tooltip } from 'chart.js'
 import { Doughnut } from 'react-chartjs-2'
 
 import rightArrow from '/assets/images/icon-caret-right.svg'
@@ -13,11 +13,11 @@ interface Budget {
 
 interface OverviewBudgetsProps {
   budgets: Budget[]
-  navigateToBudgets: () => void
+  navigateToEndpoint: (e: React.MouseEvent<HTMLParagraphElement>) => void
   formatCurrency: (amount: number) => string
 }
 
-export default function OverviewBudgets({ budgets, navigateToBudgets, formatCurrency }: OverviewBudgetsProps) {
+export default function OverviewBudgets({ budgets, navigateToEndpoint, formatCurrency }: OverviewBudgetsProps) {
 
   const totalSpent = 375 // This should be calculated from actual spending data
   const totalBudget = budgets.reduce((sum, budget) => sum + budget.maximum, 0)
@@ -63,7 +63,7 @@ export default function OverviewBudgets({ budgets, navigateToBudgets, formatCurr
       <div className='flex justify-between mb-250'>
         <h2 className='text-preset-2 text-grey900'>Budgets</h2>
         <button className='flex items-center text-grey500 text-preset-4'>
-          <p onClick={navigateToBudgets} className='mr-150'>See Details</p>
+          <p onClick={navigateToEndpoint} aria-valuetext='budgets' className='mr-150'>See Details</p>
           <img src={rightArrow} alt='icon-pointing-right' />
         </button>
       </div>

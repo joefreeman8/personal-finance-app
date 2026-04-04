@@ -21,11 +21,10 @@ export default function Overview() {
     expenses: formatCurrency(balance.expenses)
   }), [])
 
-  // Navigation functions
-  const navigateToPots = () => navigate('/pots')
-  const navigateToTransactions = () => navigate('/transactions')
-  const navigateToBudgets = () => navigate('/budgets')
-  const navigateToRecurringBills = () => navigate('/recurring-bills')
+  const navigateToEndpoint = (e: React.MouseEvent<HTMLParagraphElement>) => {
+    const endpoint = e.target
+    navigate(`/${endpoint}`)
+  }
 
   return (
     <section className="py-300 px-200 md:py-400 md:px-500">
@@ -39,12 +38,12 @@ export default function Overview() {
       </div>
       <div className='flex flex-col xl:flex-row'>
         <div className='flex flex-col xl:w-7/12 xl:mr-400'>
-          <OverviewPots pots={pots} navigateToPots={navigateToPots} />
-          <OverviewTransactions transactions={transactions} navigateToTransactions={navigateToTransactions} />
+          <OverviewPots pots={pots} navigateToEndpoint={navigateToEndpoint} />
+          <OverviewTransactions transactions={transactions} navigateToEndpoint={navigateToEndpoint} />
         </div>
         <div className='flex flex-col xl:w-2/5'>
-          <OverviewBudgets budgets={budgets} navigateToBudgets={navigateToBudgets} formatCurrency={formatCurrency} />
-          <OverviewRecurringBills transactions={transactions} navigateToRecurringBills={navigateToRecurringBills} />
+          <OverviewBudgets budgets={budgets} navigateToEndpoint={navigateToEndpoint} formatCurrency={formatCurrency} />
+          <OverviewRecurringBills transactions={transactions} navigateToEndpoint={navigateToEndpoint} />
         </div>
       </div>
 

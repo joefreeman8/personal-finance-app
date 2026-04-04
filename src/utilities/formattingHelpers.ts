@@ -6,16 +6,16 @@ export function formatDateString(dateString: string) {
   })
 }
 const formatToLocaleString = (amount: number) => {
-  return `+$${amount.toLocaleString(undefined, {
+  return amount.toLocaleString(undefined, {
     minimumFractionDigits: 2,
     maximumFractionDigits: 2
-  })}`
+  })
 }
 
 export function formatCurrency(amount: number) {
   return amount >= 0
-    ? formatToLocaleString(amount)
-    : formatToLocaleString(amount).slice(1)
+    ? `+$${formatToLocaleString(amount)}`
+    : `$${formatToLocaleString(amount).slice(1)}`
 
 }
 

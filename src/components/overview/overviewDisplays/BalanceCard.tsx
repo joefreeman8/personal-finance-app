@@ -5,12 +5,12 @@ interface BalanceCardProps {
   primary?: boolean
 }
 
-// Reusable BalanceCard component
+
 function BalanceCard({ title, amount, primary = false }: BalanceCardProps) {
 
-  // Base classes for styling
+  const balance = amount.slice(1)
   const baseClasses = "rounded-md p-250 mb-150 md:mb-0 md:p-300 md:w-1/3 md:mr-300 last:md:mr-0"
-  // Conditional classes based on whether it's the primary card
+
   const colorClasses = primary
     ? "bg-grey900 text-white"
     : "bg-white text-grey500"
@@ -18,7 +18,7 @@ function BalanceCard({ title, amount, primary = false }: BalanceCardProps) {
   return (
     <div className={`${baseClasses} ${colorClasses}`}>
       <p className="text-preset-4">{title}</p>
-      <p className={`text-preset-1 mt-150 ${primary ? '' : 'text-grey900'}`}>${amount}</p>
+      <p className={`text-preset-1 mt-150 ${!primary && 'text-grey900'}`}>{balance}</p>
     </div>
   )
 }

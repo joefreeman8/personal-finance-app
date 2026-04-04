@@ -6,7 +6,7 @@ import rightIcon from '/assets/images/icon-caret-right.svg'
 import searchIcon from '/assets/images/icon-search.svg'
 
 import { selectSortedTransactions } from '../../state/sort/selectors'
-import { formatAmount, formatDateString, styleAmount } from '../../utilities/formattingHelpers'
+import { formatCurrency, formatDateString, styleAmount } from '../../utilities/formattingHelpers'
 import FilterByCategory from './FilterByCategory'
 import SortTransactions from './SortTransactions'
 
@@ -94,7 +94,7 @@ export default function Transactions() {
               <p className='text-preset-5 text-grey500 mr-400 w-[120px]'>{transaction.category}</p>
               <p className='text-preset-5 text-grey500 mr-400 w-[120px]'>{formatDateString(transaction.date)}</p>
               <p className={`text-preset-4-bold w-[200px] flex justify-end ${styleAmount(transaction.amount)}`}>
-                {formatAmount(transaction.amount)}
+                {formatCurrency(transaction.amount)}
               </p>
             </div>
           ))}

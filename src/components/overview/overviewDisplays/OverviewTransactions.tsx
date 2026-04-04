@@ -1,6 +1,6 @@
 import rightArrow from '/assets/images/icon-caret-right.svg'
 
-import { formatAmount, formatDateString, styleAmount } from '../../../utilities/formattingHelpers'
+import { formatCurrency, formatDateString, styleAmount } from '../../../utilities/formattingHelpers'
 
 interface Transaction {
   avatar: string
@@ -13,17 +13,17 @@ interface Transaction {
 
 interface OverviewTransactionsProps {
   transactions: Transaction[]
-  navigateToTransactions: () => void
+  navigateToEndpoint: (e: React.MouseEvent<HTMLParagraphElement>) => void
 }
 
-export default function OverviewTransactions({ transactions, navigateToTransactions }: OverviewTransactionsProps) {
+export default function OverviewTransactions({ transactions, navigateToEndpoint }: OverviewTransactionsProps) {
 
   return (
     <section className='mt-300 p-300 md:p-400 rounded-xl bg-white'>
       <div className='flex justify-between mb-150'>
         <h2 className='text-preset-2 text-grey900'>Transactions</h2>
         <button className='flex items-center text-grey500 text-preset-4'>
-          <p onClick={navigateToTransactions} className='mr-150'>View All</p>
+          <p onClick={navigateToEndpoint} className='mr-150' aria-valuetext='transactions'>View All</p>
           <img src={rightArrow} alt='icon-pointing-right' />
         </button>
       </div>
@@ -39,7 +39,7 @@ export default function OverviewTransactions({ transactions, navigateToTransacti
                   </div>
                   <div className='flex flex-col'>
                     <p className={`flex justify-end text-preset-4-bold mb-100 ${styleAmount(transaction.amount)}`}>
-                      {formatAmount(transaction.amount)}
+                      {formatCurrency(transaction.amount)}
                     </p>
                     <p className='text-grey500 text-preset-5'>{formatDateString(transaction.date)}</p>
                   </div>

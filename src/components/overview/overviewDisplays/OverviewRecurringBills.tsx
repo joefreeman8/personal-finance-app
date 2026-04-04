@@ -9,10 +9,10 @@ type Transaction = {
 
 interface OverviewRecurringBillsProps {
   transactions: Transaction[]
-  navigateToRecurringBills: () => void
+  navigateToEndpoint: (e: React.MouseEvent<HTMLParagraphElement>) => void
 }
 
-export default function OverviewRecurringBills({ transactions, navigateToRecurringBills }: OverviewRecurringBillsProps) {
+export default function OverviewRecurringBills({ transactions, navigateToEndpoint }: OverviewRecurringBillsProps) {
 
   const recurringBills = transactions.filter(transaction => transaction.recurring)
   console.log(recurringBills)
@@ -22,7 +22,7 @@ export default function OverviewRecurringBills({ transactions, navigateToRecurri
       <div className='flex justify-between mb-400'>
         <h2 className='text-preset-2 text-grey900'>Recurring Bills</h2>
         <button className='flex items-center text-grey500 text-preset-4'>
-          <p onClick={navigateToRecurringBills} className='mr-150'>See Details</p>
+          <p onClick={navigateToEndpoint} aria-valuetext='recurring-bills' className='mr-150'>See Details</p>
           <img src={rightArrow} alt='icon-pointing-right' />
         </button>
       </div>
@@ -40,6 +40,6 @@ export default function OverviewRecurringBills({ transactions, navigateToRecurri
           <p className='text-grey900 text-preset-4-bold'>$59.98</p>
         </div>
       </div>
-    </section>
+    </section >
   )
 }

@@ -8,17 +8,17 @@ interface Pot {
 }
 
 interface OverviewPotsProps {
-  pots: Pot[] // Array of pots
-  navigateToPots: () => void // Function to navigate to pots
+  pots: Pot[]
+  navigateToEndpoint: (e: React.MouseEvent<HTMLParagraphElement>) => void
 }
 
-export default function OverviewPots({ pots, navigateToPots }: OverviewPotsProps) {
+export default function OverviewPots({ pots, navigateToEndpoint }: OverviewPotsProps) {
   return (
     <section className='p-300 md:p-400 rounded-xl bg-white'>
       <div className='flex justify-between mb-250'>
         <h2 className='text-preset-2 text-grey900'>Pots</h2>
         <button className='flex items-center text-grey500 text-preset-4'>
-          <p onClick={navigateToPots} className='mr-150'>See Details</p>
+          <p onClick={navigateToEndpoint} aria-valuetext='pots' className='mr-150'>See Details</p>
           <img src={rightArrow} alt='icon-pointing-right' />
         </button>
       </div>
