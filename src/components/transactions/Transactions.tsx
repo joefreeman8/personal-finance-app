@@ -20,7 +20,7 @@ export default function Transactions() {
   const indexOfLastItem = currentPage * itemsPerPage
   const indexOfFirstItem = indexOfLastItem - itemsPerPage
   const transactions = searchTransactions.slice(indexOfFirstItem, indexOfLastItem)
-  const totalPages = Math.ceil(transactions.length / itemsPerPage)
+  const totalPages = Math.ceil(searchTransactions.length / itemsPerPage)
 
   return (
     <section className="py-300 px-200 md:py-400 md:px-500">
