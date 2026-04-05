@@ -1,4 +1,4 @@
-import React from 'react'
+import { ChangeEvent } from 'react'
 import { useDispatch } from 'react-redux'
 
 import { setSortByMethod } from '../../state/sort/actions'
@@ -9,7 +9,7 @@ import { SortValue } from '../../state/sort/types'
 export default function SortTransactions() {
   const dispatch = useDispatch()
 
-  const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+  const handleChange = (e: ChangeEvent<HTMLSelectElement>) => {
     const value = e.target.value as SortValue
     dispatch(setSortByMethod(value))
   }

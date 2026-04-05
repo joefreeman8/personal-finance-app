@@ -1,3 +1,4 @@
+import { ChangeEvent } from "react";
 import { useDispatch } from "react-redux";
 
 import { setCategory } from "../../state/filter/actions";
@@ -8,7 +9,7 @@ import { CategoryValue } from "../../state/filter/types";
 export default function FilterByCategory() {
   const dispatch = useDispatch()
 
-  const handleCategoryChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+  const handleCategoryChange = (e: ChangeEvent<HTMLSelectElement>) => {
     const value = e.target.value as CategoryValue
     dispatch(setCategory(value))
   }
