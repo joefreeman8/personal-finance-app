@@ -9,7 +9,7 @@ interface Pot {
 
 interface OverviewPotsProps {
   pots: Pot[]
-  navigateToEndpoint: (e: React.MouseEvent<HTMLParagraphElement>) => void
+  navigateToEndpoint: (endpoint: string) => void
 }
 
 export default function OverviewPots({ pots, navigateToEndpoint }: OverviewPotsProps) {
@@ -17,8 +17,10 @@ export default function OverviewPots({ pots, navigateToEndpoint }: OverviewPotsP
     <section className='p-300 md:p-400 rounded-xl bg-white'>
       <div className='flex justify-between mb-250'>
         <h2 className='text-preset-2 text-grey900'>Pots</h2>
-        <button className='flex items-center text-grey500 text-preset-4'>
-          <p onClick={navigateToEndpoint} aria-valuetext='pots' className='mr-150'>See Details</p>
+        <button
+          onClick={() => navigateToEndpoint('/pots')}
+          className='flex items-center text-grey500 text-preset-4'>
+          <p className='mr-150'>See Details</p>
           <img src={rightArrow} alt='icon-pointing-right' />
         </button>
       </div>

@@ -13,7 +13,7 @@ interface Budget {
 
 interface OverviewBudgetsProps {
   budgets: Budget[]
-  navigateToEndpoint: (e: React.MouseEvent<HTMLParagraphElement>) => void
+  navigateToEndpoint: (event: string) => void
   formatCurrency: (amount: number) => string
 }
 
@@ -62,8 +62,10 @@ export default function OverviewBudgets({ budgets, navigateToEndpoint, formatCur
     <section className='mt-300 xl:mt-0 p-300 md:p-400 md:pb-250 mt-300 rounded-xl bg-white'>
       <div className='flex justify-between mb-250'>
         <h2 className='text-preset-2 text-grey900'>Budgets</h2>
-        <button className='flex items-center text-grey500 text-preset-4'>
-          <p onClick={navigateToEndpoint} aria-valuetext='budgets' className='mr-150'>See Details</p>
+        <button
+          onClick={() => navigateToEndpoint('/budgets')}
+          className='flex items-center text-grey500 text-preset-4'>
+          <p className='mr-150'>See Details</p>
           <img src={rightArrow} alt='icon-pointing-right' />
         </button>
       </div>
@@ -81,7 +83,7 @@ export default function OverviewBudgets({ budgets, navigateToEndpoint, formatCur
               <div className='w-1 h-[43px] rounded mr-200' style={{ backgroundColor: budget.theme }}></div>
               <div>
                 <p className='text-preset-5 text-grey500 mb-50'>{budget.category}</p>
-                <p className='text-preset-4-bold text-grey900'>${formatCurrency(budget.maximum)}</p>
+                <p className='text-preset-4-bold text-grey900'>{formatCurrency(budget.maximum).slice(1)}</p>
               </div>
             </div>
           ))}

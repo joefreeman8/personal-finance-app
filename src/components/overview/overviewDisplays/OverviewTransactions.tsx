@@ -13,7 +13,7 @@ interface Transaction {
 
 interface OverviewTransactionsProps {
   transactions: Transaction[]
-  navigateToEndpoint: (e: React.MouseEvent<HTMLParagraphElement>) => void
+  navigateToEndpoint: (endpoint: string) => void
 }
 
 export default function OverviewTransactions({ transactions, navigateToEndpoint }: OverviewTransactionsProps) {
@@ -22,8 +22,11 @@ export default function OverviewTransactions({ transactions, navigateToEndpoint 
     <section className='mt-300 p-300 md:p-400 rounded-xl bg-white'>
       <div className='flex justify-between mb-150'>
         <h2 className='text-preset-2 text-grey900'>Transactions</h2>
-        <button className='flex items-center text-grey500 text-preset-4'>
-          <p onClick={navigateToEndpoint} className='mr-150' aria-valuetext='transactions'>View All</p>
+        <button
+          onClick={() => navigateToEndpoint('/transactions')}
+          className='flex items-center text-grey500 text-preset-4'
+        >
+          <p className='mr-150'>View All</p>
           <img src={rightArrow} alt='icon-pointing-right' />
         </button>
       </div>
@@ -49,6 +52,6 @@ export default function OverviewTransactions({ transactions, navigateToEndpoint 
           ))
         )}
       </div>
-    </section>
+    </section >
   )
 }

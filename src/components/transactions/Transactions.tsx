@@ -103,7 +103,7 @@ export default function Transactions() {
               className='text-preset-4 text-grey900 flex items-center justify-evenly border border-beige500 w-[95px] h-[40px] rounded-lg'
               onClick={previousPage}
             >
-              <img src={leftIcon} alt="Arrow pointing to go to a previous page" />
+              <img src={leftIcon} alt="previous page" />
               Prev
             </button>
             <div className='flex flex-row items-center justify-center'>
@@ -125,7 +125,7 @@ export default function Transactions() {
               onClick={nextPage}
             >
               Next
-              <img src={rightIcon} alt="Arrow pointing to go to the next page" />
+              <img src={rightIcon} alt="next page" />
             </button>
           </div>
         </section>

@@ -9,7 +9,7 @@ type Transaction = {
 
 interface OverviewRecurringBillsProps {
   transactions: Transaction[]
-  navigateToEndpoint: (e: React.MouseEvent<HTMLParagraphElement>) => void
+  navigateToEndpoint: (endpoint: string) => void
 }
 
 export default function OverviewRecurringBills({ transactions, navigateToEndpoint }: OverviewRecurringBillsProps) {
@@ -21,8 +21,10 @@ export default function OverviewRecurringBills({ transactions, navigateToEndpoin
     <section className='mt-300 p-300 md:p-400 rounded-xl bg-white'>
       <div className='flex justify-between mb-400'>
         <h2 className='text-preset-2 text-grey900'>Recurring Bills</h2>
-        <button className='flex items-center text-grey500 text-preset-4'>
-          <p onClick={navigateToEndpoint} aria-valuetext='recurring-bills' className='mr-150'>See Details</p>
+        <button
+          onClick={() => navigateToEndpoint('/recurring-bills')}
+          className='flex items-center text-grey500 text-preset-4'>
+          <p className='mr-150'>See Details</p>
           <img src={rightArrow} alt='icon-pointing-right' />
         </button>
       </div>

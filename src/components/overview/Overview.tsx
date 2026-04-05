@@ -21,9 +21,8 @@ export default function Overview() {
     expenses: formatCurrency(balance.expenses)
   }), [])
 
-  const navigateToEndpoint = (e: React.MouseEvent<HTMLParagraphElement>) => {
-    const endpoint = e.target
-    navigate(`/${endpoint}`)
+  const navigateToEndpoint = (endpoint: string) => {
+    navigate(endpoint)
   }
 
   return (
