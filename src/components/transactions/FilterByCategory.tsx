@@ -21,7 +21,7 @@ export default function FilterByCategory() {
       <select
         name="category"
         id="category"
-        className="px-250 py-150 border border-grey900 rounded"
+        className="px-250 py-150 border border-grey900 rounded-sm"
         onChange={handleCategoryChange}
       >
         {CATEGORY_OPTIONS.map(option => (

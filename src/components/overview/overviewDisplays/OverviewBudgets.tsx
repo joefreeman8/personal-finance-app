@@ -80,7 +80,7 @@ export default function OverviewBudgets({ budgets, navigateToEndpoint, formatCur
         <div className='mt-200 md:mt-0 md:w-1/5 xl:w-1/3 md:ml-200 flex flex-row flex-wrap md:flex-col justify-between'>
           {budgets.map((budget, index) => (
             <div key={index} className='w-[calc(50%-8px)] md:w-full flex mb-200 last:mb-0'>
-              <div className='w-1 h-[43px] rounded mr-200' style={{ backgroundColor: budget.theme }}></div>
+              <div className='w-1 h-[43px] rounded-sm mr-200' style={{ backgroundColor: budget.theme }}></div>
               <div>
                 <p className='text-preset-5 text-grey500 mb-50'>{budget.category}</p>
                 <p className='text-preset-4-bold text-grey900'>{formatCurrency(budget.maximum).slice(1)}</p>

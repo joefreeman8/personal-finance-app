@@ -22,7 +22,7 @@ export default function SortTransactions() {
       <select
         name="sort"
         id="sort"
-        className="px-250 py-150 border border-grey900 rounded"
+        className="px-250 py-150 border border-grey900 rounded-sm"
         onChange={handleChange}
       >
         {SORT_OPTIONS.map(option => (

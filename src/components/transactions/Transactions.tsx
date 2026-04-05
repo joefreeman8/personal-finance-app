@@ -60,7 +60,7 @@ export default function Transactions() {
       <div className="flex flex-col p-400 md:flex-col my-400 md:justify-between bg-white rounded-xl">
         <form className="flex flex-row justify-between items-center my-50 h-[46px] w-full">
           <div className="flex-1">
-            <div className="w-[320px] px-200 py-150 border border-grey900 rounded flex flex-row justify-between">
+            <div className="w-[320px] px-200 py-150 border border-grey900 rounded-sm flex flex-row justify-between">
               <label hidden htmlFor="searchTransaction">Search</label>
               <input
                 type="text"

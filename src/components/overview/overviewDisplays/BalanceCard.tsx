@@ -9,7 +9,7 @@ interface BalanceCardProps {
 function BalanceCard({ title, amount, primary = false }: BalanceCardProps) {
 
   const balance = amount.slice(1)
-  const baseClasses = "rounded-md p-250 mb-150 md:mb-0 md:p-300 md:w-1/3 md:mr-300 last:md:mr-0"
+  const baseClasses = "rounded-md p-250 mb-150 md:mb-0 md:p-300 md:w-1/3 md:mr-300 md:last:mr-0"
 
   const colorClasses = primary
     ? "bg-grey900 text-white"

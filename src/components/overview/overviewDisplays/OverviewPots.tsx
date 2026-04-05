@@ -39,7 +39,7 @@ export default function OverviewPots({ pots, navigateToEndpoint }: OverviewPotsP
             pots.map((pot, index) => (
               index < 4 && (
                 <div key={index} className='w-[130px] flex items-center'>
-                  <div className='w-1 rounded' style={{ backgroundColor: pot.theme }}>
+                  <div className='w-1 rounded-sm' style={{ backgroundColor: pot.theme }}>
                     <div className='ml-200'>
                       <p className='text-preset-5 text-grey500 mb-50 w-[100px]'>{pot.name}</p>
                       <p className='text-preset-4-bold text-grey900'>${pot.total}</p>

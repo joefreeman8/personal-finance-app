@@ -24,7 +24,7 @@ export default function Navbar() {
         ? `
         bg-beige100 text-grey900 border-green
         rounded-tl-md rounded-tr-md border-b-4 
-        xl:rounded-tl-[0px] xl:border-b-0 xl:rounded-r-md xl:border-l-4 xl:w-[276px]
+        xl:rounded-tl-none xl:border-b-0 xl:rounded-r-md xl:border-l-4 xl:w-[276px]
         `
         : 'text-grey300 hover:text-grey100'
       }
